@@ -4,6 +4,15 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
+var articleone={title:'articleone',
+                heading:'articleone',
+                date:'feb4 2017',
+                content:`
+                <P1><h2>subtitle1</h2>
+    Hi everyone!
+    this is article onethis is article onethis is article onethis is article onethis is article onethis is article one</P1>`
+
+};
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
