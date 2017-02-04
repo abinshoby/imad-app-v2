@@ -4,14 +4,28 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articleone={title:'articleone',
-                heading:'articleone',
-                date:'feb4 2017',
-                content:`
-                <P1><h2>subtitle1</h2>
-    Hi everyone!
-    this is article onethis is article onethis is article onethis is article onethis is article onethis is article one</P1>`
-
+var articles={
+                article-one:{title:'articleone',
+                               heading:'articleone',
+                               date:'feb4 2017',
+                                 content:`
+                                <P1><h2>subtitle1</h2>
+                                     Hi everyone!
+                                     this is article onethis is article onethis is article onethis is article onethis is article onethis is article one</P1>`},
+                 article-two:{title:'articletwo',
+                               heading:'articleone',
+                               date:'feb5 2017',
+                                 content:`
+                                <P1><h2>subtitle1</h2>
+                                     Hi everyone!
+                                     this is article twothis is article twothis is article twothis is article twothis is article twothis is article two</P1>`},
+                 article-three:{title:'articlethree',
+                               heading:'articlethree',
+                               date:'feb6 2017',
+                                 content:`
+                                <P1><h2>subtitle1</h2>
+                                     Hi everyone!
+                                     this is article threethis is article threethis is article threethis is article threethis is article threethis is article three</P1>`},
 };
 function createtemplete(data){var title=data.title;
 var heading=data.heading;
@@ -44,9 +58,9 @@ app.get('/', function (req, res) {
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
-app.get('/article-one',function(req,res){res.send(createtemplete(articleone));});
-app.get('/article-two',function(req,res){res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));});
-app.get('/article-three',function(req,res){res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));});
+app.get('/:articleName',function(req,res){
+    var articleName=req.params.articleName;
+    res.send(createtemplete(articles[articleName]));});
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
