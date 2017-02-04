@@ -59,8 +59,8 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 app.get(':/ui/article',function(req,res){
-    var articleName=req.params.article;
-    res.send(createtemplete(articles[articleName]));});
+    var article=req.params.article;
+    res.send(createtemplete(articles[article]));});
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
