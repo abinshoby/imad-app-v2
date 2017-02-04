@@ -65,9 +65,9 @@ app.get('/counter',function(req,res){
    res.send(counter.tostring());
 });
 
-app.get('/:articlename',function(req,res){
-    var articlename=req.params.articlename;
-    res.send(createtemplete(articles[articlename]));});
+//app.get('/:articlename',function(req,res){
+   // var articlename=req.params.articlename;
+   // res.send(createtemplete(articles[articlename]));});
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
