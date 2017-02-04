@@ -13,6 +13,28 @@ var articleone={title:'articleone',
     this is article onethis is article onethis is article onethis is article onethis is article onethis is article one</P1>`
 
 };
+function createtemplete(data){var title=data.title;
+var heading=data.heading;
+var date=data.date;
+var content=data.content;
+var htmltemplete=`<!DOCTYPE html>
+<head>
+<title>${title}</title>
+<meta name="viewport" content="width=device-width" initial="scale-1"/>
+<div>
+        <a href="/">home</a>
+ </div>
+ <hr>
+<h1>${heading}
+</h1>  
+<div>${date}</div>
+<P1>${content}</P1>
+
+</body>
+</html>
+ `;
+return htmltemplete;
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -21,7 +43,7 @@ app.get('/', function (req, res) {
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
-app.get('/article-one',function(req,res){res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));});
+app.get('/article-one',function(req,res){res.send(createtemplete(articleone));});
 app.get('/article-two',function(req,res){res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));});
 app.get('/article-three',function(req,res){res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));});
 app.get('/ui/madi.png', function (req, res) {
