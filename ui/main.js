@@ -3,7 +3,22 @@ var element=document.getElementById("maintext");
 element.innerHTML="new value";
 var img=document.getElementById("move");
 marginleft=0;
-function moveright()
+var request=new XMLhttprequest();
+request.onreadystatechange=function()
+{
+    if(request.readystate==XMLhttprequest.DONE)
+    {//TAKE 
+       //ACTION
+      if(request.status==200)
+      {
+          var counter=request.responseText;
+          var spam=document.getElementById("count");
+    spam.innerHTML=counter.toString();
+    
+      }
+    }
+};
+/*function moveright()
 {   marginleft=marginleft+10;
     img.style.marginLeft=marginleft+"px";
 }
@@ -18,4 +33,6 @@ button.onclick=function(){
     var spam=document.getElementById("count");
     spam.innerHTML=counter.toString();
     
-};
+};*/
+request.open("GET","http://abinshoby.imad.hasura-app.io/counter",true);
+request.send(null);
