@@ -12,7 +12,7 @@ request.onreadystatechange=function()
       if(request.status==200)
       {
           var counter=request.responseText;
-          var spam=document.getElementById("count");
+          var spam=document.getElementById("counter");
     spam.innerHTML=counter.toString();
     
       }
