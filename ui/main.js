@@ -6,7 +6,7 @@ marginleft=0;
 var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
-    if(request.readystate==XMLHttpRequest.DONE)
+    if(request.readyState==XMLHttpRequest.DONE)
     {//TAKE 
        //ACTION
       if(request.status==200)
