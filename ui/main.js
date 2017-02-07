@@ -3,10 +3,10 @@ var element=document.getElementById("maintext");
 element.innerHTML="new value";
 var img=document.getElementById("move");
 marginleft=0;
-var request=new XMLhttprequest();
+var request=new XMLHttpRequest();
 request.onreadystatechange=function()
 {
-    if(request.readystate==XMLhttprequest.DONE)
+    if(request.readystate==XMLHttpRequest.DONE)
     {//TAKE 
        //ACTION
       if(request.status==200)
